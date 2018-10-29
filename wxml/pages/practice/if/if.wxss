@@ -1,0 +1,9 @@
+/* pages/if/if.wxss */
+@import "../list/list.wxss";
+block{
+  color:red;
+}
+view{
+  color:blue;
+  font-style: normal;
+}

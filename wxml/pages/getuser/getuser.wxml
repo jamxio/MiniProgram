@@ -1,0 +1,3 @@
+<!--pages/getuser/getuser.wxml-->
+<text>pages/getuser/getuser.wxml</text>
+<view>openid:{{openid}}</view>

@@ -1,0 +1,8 @@
+/* pages/list/list.wxss */
+@import "../data/data.wxss";
+.inline{
+  display: flex;
+}
+.attention{
+  font-weight: bold;
+}

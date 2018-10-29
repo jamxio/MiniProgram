@@ -1,0 +1,55 @@
+<!--pages/data/data.wxml-->
+<text>数据绑定使用 Mustache 语法（双大括号）将变量包起来，可以作用于：</text>
+<view class="h1">内容</view>
+<view> {{ message }} </view>
+<view class="h1">组件属性(需要在双引号之内)</view>
+<view id="item-{{id}}">item-1</view>
+<view class="h1">控制属性(需要在双引号之内)</view>
+<view wx:if="{{condition}}">当前显示</view>
+<view class="h1">关键字(需要在双引号之内)</view>
+<checkbox checked="{{false}}">选择了吗</checkbox>
+<view class="remark">特别注意：不要直接写 checked="false"，其计算结果是一个字符串，转成 boolean 类型后代表真值。</view>
+<view class="h1">运算</view>
+可以在 {{}} 内进行简单的运算，支持的有如下几种方式：
+<view class="h1">三元运算</view>
+<view hidden="{{flag ? true : false}}"> Hidden </view>
+<view class="h1">算数运算</view>
+<view> {{a + b}} + {{c}} + d </view>
+<view class="h1">逻辑运算</view>
+<view wx:if="{{length > 5}}">length>5 </view>
+<view class="h1">字符串运算</view>
+<view>{{"hello" + name}}</view>
+<view class="h1">数据路径运算(即对象引用)</view>
+<view>{{object.key}} {{array[1]}}</view>
+<view class="h1">组合</view>
+也可以在 Mustache 内直接进行组合，构成新的对象或者数组。
+<view class="h1">数组</view>
+<view wx:for="{{[zero, 1, 2, 3, 4]}}"> {{item}} </view>
+<view class="remark">最终组合成数组[0, 1, 2, 3, 4]。</view>
+<template name="objectCombine">
+<view>for值为：{{for}}</view>
+<view>bar值为：{{bar}}</view>
+</template>
+<view class="h1">对象</view>
+<template is="objectCombine" data="{{for: a, bar: b}}"></template>
+<view class="remark">最终组合成的对象是 {for: 1, bar: 2}</view>
+<view class="remark">也可以用扩展运算符 ... 来将一个对象展开</view>
+<template is="objectCombine" data="{{...obj1, ...obj2, e: 5}}"></template>
+<view class="remark">最终组合成的对象是 {a: 1, b: 2, c: 3, d: 4, e: 5}。
+
+如果对象的 key 和 value 相同，也可以间接地表达。</view>
+<template is="objectCombine" data="{{foo, bar}}"></template>
+<view class="remark">最终组合成的对象是 {foo: 'my-foo', bar:'my-bar'}。
+
+注意：上述方式可以随意组合，但是如有存在变量名相同的情况，后边的会覆盖前面，如：</view>
+<template is="objectCombine" data="{{...obj1, ...obj2, a, c: 6}}"></template>
+<view class="remark">最终组合成的对象是 {a: 5, b: 3, c: 6}。
+
+注意： 花括号和引号之间如果有空格，将最终被解析成为字符串</view>
+<view wx:for="{{[1,2,3]}}">
+  {{item}}
+</view>
+不同于
+<view wx:for="{{[1,2,3] + ' '}}">
+  {{item}}
+</view>

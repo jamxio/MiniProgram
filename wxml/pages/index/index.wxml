@@ -1,0 +1,42 @@
+<!--index-->
+<view class="container">
+<!--
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  
+  <view class="group" bindtap="redirect" data-url="data/data">
+    <text>数据绑定</text>
+  </view>
+  
+  <view class="group" bindtap="redirect" data-url="list/list">
+    <text>列表渲染</text>
+  </view>
+  
+  <view class="group" bindtap="redirect" data-url="if/if">
+    <text>条件渲染</text>
+  </view>
+  -->
+  <view class="group" bindtap="redirect" data-url="voice/voice">
+    <text>语音demo</text>
+  </view>
+  <view class="group" bindtap="redirect" data-url="templet/templet">
+    <text>模板</text>
+  </view>
+  <view class="group" bindtap="redirect" data-url="thing/thing">
+    <text>事件</text>
+  </view>
+  <view class="group" bindtap="redirect" data-url="include/include">
+    <text>引用</text>
+  </view>
+  <view class="group" bindtap="ditu">
+    <text>获取位置</text>
+  </view>
+  <view class="group" bindtap="redirect" data-url="getuser/getuser">
+    <text>获取用户信息</text>
+  </view>
+  <view class="group" bindtap="redirect" data-url="socket/socket">
+    <text>套接字连接</text>
+  </view>
+</view>

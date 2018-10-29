@@ -1,0 +1,29 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">录音</view>
+        <view class="page__desc">录音然后等待识别结果返回</view>
+    </view>
+    <view></view>
+    <view class="page__bd page__bd_spacing">
+        <view class="weui-loadmore" wx:if="{{reqing}}">
+            <view class="weui-loading">语音</view>
+            <view class="weui-loadmore__tips">正在识别</view>
+        </view>
+        <view class="weui-loadmore weui-loadmore_line" wx:else>
+          <view class="weui-loadmore__tips weui-loadmore__tips_in-line">
+          {{voiceResult||'未识别'}}                 
+           </view>
+        </view>
+        <view class="button-sp-area">
+          <view class="weui-progress" wx:if="{{recording}}">
+            <view class="weui-progress__bar">
+                <progress percent="{{(15-restSecond)/15*100}}" stroke-width="3" />
+                {{parseInt(15-restSecond)}}
+            </view>
+          </view>
+          <button class="weui-btn" type="{{recording?'default':'primary'}}" plain="true" bindlongpress='recordVoice' bindtouchend='endRecord' bindtouchcancel='endRecord'>
+          {{recording?'录制中':'录制'}}
+          </button>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,10 @@
+/* pages/data/data.wxss */
+.h1{
+  font-size: 30px;
+  color:black;
+  text-decoration-line:bottom;
+}
+.remark{
+  font-style:oblique;
+  font-size: 14px;
+}
